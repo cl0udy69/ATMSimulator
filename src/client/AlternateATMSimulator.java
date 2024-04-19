@@ -1,9 +1,10 @@
+package src.client;
 
 //import java.text.NumberFormat;
 import java.util.Scanner;
 //import java.util.Random;
 
-import Functions.withdrawFunctions;
+import src.functions.withdrawFunctions;
 
 public class AlternateATMSimulator {
     public static void main(String[] args) {

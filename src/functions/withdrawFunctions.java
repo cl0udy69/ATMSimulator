@@ -1,4 +1,4 @@
-package Functions;
+package src.functions;
 
 import java.util.Scanner;
 import java.util.Random;

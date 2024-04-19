@@ -1,3 +1,5 @@
+package src.client;
+
 import java.util.Scanner;
 import java.util.Random;
 import java.text.NumberFormat;
