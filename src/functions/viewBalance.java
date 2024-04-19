@@ -4,8 +4,8 @@ import java.util.Scanner;
 import java.util.Random;
 import java.text.NumberFormat;
 
-public class withdrawFunctions {
-    public void withdraw() {
+public class viewBalance {
+    public void balance() {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
         NumberFormat formatter = NumberFormat.getInstance();
@@ -14,9 +14,7 @@ public class withdrawFunctions {
         String formattedBalance = formatter.format(randomBalance);
 
         String selection = "";
-        int withdrawAmount;
         int debitPin;
-        int sum;
 
         System.out.println("Are you using a debit or credit card?: ");
         selection = scanner.nextLine();
@@ -34,22 +32,7 @@ public class withdrawFunctions {
                     System.out.println("Invalid pin. Please enter a valid 4-digit pin.");
                 }
             }
-            System.out.println(
-                    "Your current balance is : $" + formattedBalance + ", how much would you like to withdraw");
-            withdrawAmount = scanner.nextInt();
-
-            if (withdrawAmount > randomBalance) {
-                System.out.println("Insufficient funds. Please try again");
-                withdrawAmount = scanner.nextInt();
-            } else if (withdrawAmount <= 0) {
-                System.out.println("Invalid amount. Please try again");
-                withdrawAmount = scanner.nextInt();
-            }
-
-            sum = randomBalance - withdrawAmount;
-            String formattedSum = formatter.format(sum);
-            System.out
-                    .println("Your current balance is " + formattedSum + ". Would you like to do something else?:");
+            System.out.println("Your current balance is: $" + formattedBalance);
             while (true) {
                 selection = scanner.nextLine();
                 if (selection.equalsIgnoreCase("yes") || selection.equalsIgnoreCase("y")) {
@@ -71,24 +54,8 @@ public class withdrawFunctions {
                     System.out.println(selection + " is not a valid input");
                 }
             }
-
         } else if (selection.equalsIgnoreCase("credit") || selection.equalsIgnoreCase("credit card")) {
-            System.out.println(
-                    "Your current balance is: $" + formattedBalance + ", how much would you like to withdraw");
-            withdrawAmount = scanner.nextInt();
-
-            if (withdrawAmount > randomBalance) {
-                System.out.println("Insufficient funds. Please try again");
-                withdrawAmount = scanner.nextInt();
-            } else if (withdrawAmount <= 0) {
-                System.out.println("Invalid amount. Please try again");
-                withdrawAmount = scanner.nextInt();
-            }
-
-            sum = randomBalance - withdrawAmount;
-            String formattedSum = formatter.format(sum);
-            System.out
-                    .println("Your current balance is: $" + formattedSum + ". Would you like to do something else?:");
+            System.out.println("Your current balance is: $" + formattedBalance);
             while (true) {
                 selection = scanner.nextLine();
                 if (selection.equalsIgnoreCase("yes") || selection.equalsIgnoreCase("y")) {
