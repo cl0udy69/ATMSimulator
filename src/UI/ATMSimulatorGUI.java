@@ -1,6 +1,11 @@
 package src.UI;
 
 import javax.swing.*;
+
+import src.functions.withdrawFunctions;
+import src.functions.depositFunctions;
+import src.functions.viewBalance;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -59,6 +64,10 @@ public class ATMSimulatorGUI extends JFrame {
         withdrawButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 outputArea.append("Withdraw selected\n");
+                withdrawFunctions withdrawFunc = new withdrawFunctions();
+                withdrawFunc.withdraw();
+            }
+        });
                 // Call your withdraw function here
             }
         });
@@ -66,6 +75,7 @@ public class ATMSimulatorGUI extends JFrame {
         depositButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 outputArea.append("Deposit selected\n");
+                
                 // Call your deposit function here
             }
         });

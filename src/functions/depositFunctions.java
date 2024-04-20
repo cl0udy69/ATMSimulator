@@ -67,9 +67,7 @@ public class depositFunctions {
                     }
                 } else if (selection.equalsIgnoreCase("no") || selection.equalsIgnoreCase("n")) {
                     break;
-                } else {
-                    System.out.println(selection + " is not a valid input");
-                }
+                } 
                 scanner.close();
             }
         } else if (selection.equalsIgnoreCase("credit") || selection.equalsIgnoreCase("credit card")) {
@@ -98,9 +96,7 @@ public class depositFunctions {
                     }
                 } else if (selection.equalsIgnoreCase("no") || selection.equalsIgnoreCase("n")) {
                     break;
-                } else {
-                    System.out.println(selection + " is not a valid input");
-                }
+                } 
                 scanner.close();
             }
         }

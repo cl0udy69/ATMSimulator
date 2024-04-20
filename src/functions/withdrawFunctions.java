@@ -70,15 +70,10 @@ public class withdrawFunctions {
                     || selection.equalsIgnoreCase("balance") || selection.equalsIgnoreCase("current balance"))) {
                         viewBal.balance();
                         break;
-                    } else {
-                        System.out.println(selection + " is not a valid input");
-                    }
-                } else if (selection.equalsIgnoreCase("no") || selection.equalsIgnoreCase("n")) {
+                    } 
+                    } else if (selection.equalsIgnoreCase("no") || selection.equalsIgnoreCase("n")) {
                     break;
-                } else {
-                    System.out.println(selection + " is not a valid input");
-                }
-                scanner.close();
+                } 
             }
 
         } else if (selection.equalsIgnoreCase("credit") || selection.equalsIgnoreCase("credit card")) {
@@ -112,15 +107,13 @@ public class withdrawFunctions {
                                 viewBal.balance();
                                 break;
                             } else {
-                                System.out.println(selection + " is not a valid input");
-                            }
+                                 System.out.println(selection + " is not a valid input");
+                             }
                         } else if (selection.equalsIgnoreCase("no") || selection.equalsIgnoreCase("n")) {
                             break;
-                        } else {
-                            System.out.println(selection + " is not a valid input");
-                        }
+                        } 
                     }
+                }
                 scanner.close();
             }
-        }
-    }        
+        }     
