@@ -15,26 +15,45 @@ public class ATMSimulatorGUI extends JFrame {
         setLocationRelativeTo(null); // Center the window
         setLayout(new BorderLayout());
         setResizable(false);
+        getContentPane().setBackground(Color.DARK_GRAY); // Set background color
 
         // Create the output area (where the text will be displayed)
         outputArea = new JTextArea(10, 30); // 10 rows, 30 columns
         outputArea.setEditable(false); // Make the text area read-only
         outputArea.setLineWrap(true); // Enable text wrapping
         outputArea.setWrapStyleWord(true); // Wrap at word boundaries
-        outputArea.setBackground(new Color(240, 240, 240)); // Set background color
+        outputArea.setForeground(Color.WHITE); // Set text color to white
+        outputArea.setBackground(Color.DARK_GRAY); // Set background color to dark gray
+        outputArea.setFont(new Font("Arial", Font.PLAIN, 14)); // Set font
         JScrollPane scrollPane = new JScrollPane(outputArea); // Add scrollbars
 
         // Add the output area to the center of the BorderLayout
         add(scrollPane, BorderLayout.CENTER);
 
         // Create a panel for buttons
-        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 10, 10)); // 3 rows, 1 column, with 10 pixels of horizontal and vertical spacing
+        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 10, 10)); // 3 rows, 1 column, with 10 pixels of horizontal
+                                                                       // and vertical spacing
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add padding to the panel
+        buttonPanel.setBackground(Color.DARK_GRAY); // Set background color to dark gray
 
         // Create buttons for actions
         JButton withdrawButton = new JButton("Withdraw");
         JButton depositButton = new JButton("Deposit");
         JButton viewBalanceButton = new JButton("View Balance");
+
+        // Set button colors and font
+        Color buttonColor = new Color(59, 89, 182); // Blue color
+        Color textColor = Color.WHITE; // White color
+        Font buttonFont = new Font("Arial", Font.BOLD, 16); // Bold font
+        withdrawButton.setBackground(buttonColor);
+        withdrawButton.setForeground(textColor);
+        withdrawButton.setFont(buttonFont);
+        depositButton.setBackground(buttonColor);
+        depositButton.setForeground(textColor);
+        depositButton.setFont(buttonFont);
+        viewBalanceButton.setBackground(buttonColor);
+        viewBalanceButton.setForeground(textColor);
+        viewBalanceButton.setFont(buttonFont);
 
         // Add action listeners to the buttons
         withdrawButton.addActionListener(new ActionListener() {
