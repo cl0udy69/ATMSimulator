@@ -28,8 +28,7 @@ public class ATMSimulatorGUI extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         // Create a panel for buttons
-        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 10, 10)); // 3 rows, 1 column, with 10 pixels of horizontal
-                                                                       // and vertical spacing
+        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 10, 10)); // 3 rows, 1 column, with 10 pixels of horizontal and vertical spacing
         buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add padding to the panel
 
         // Create buttons for actions
