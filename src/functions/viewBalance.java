@@ -1,4 +1,5 @@
 package src.functions;
+import src.functions.viewBalance;
 
 import src.functions.viewBalance;
 
@@ -6,8 +7,13 @@ import java.util.Scanner;
 import java.util.Random;
 import java.text.NumberFormat;
 
+<<<<<<< HEAD
 //import src.functions.depositFunctions;
 //import src.functions.withdrawFunctions;
+=======
+import src.functions.depositFunctions;
+import src.functions.withdrawFunctions;
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
 import src.functions.viewBalance;
 
 public class viewBalance {
@@ -50,12 +56,19 @@ public class viewBalance {
                     selection = scanner.nextLine();
                     if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")) {
                         withdrawFunc.withdraw();
+<<<<<<< HEAD
                     } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")) {
                         depositFunc.deposit();
                     } else if ((selection.equalsIgnoreCase("view balance")
                             || selection.equalsIgnoreCase("view current balance")
                             || selection.equalsIgnoreCase("balance")
                             || selection.equalsIgnoreCase("current balance"))) {
+=======
+                    } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")){
+                        depositFunc.deposit();
+                    } else if ((selection.equalsIgnoreCase("view balance") || selection.equalsIgnoreCase("view current balance")
+                    || selection.equalsIgnoreCase("balance") || selection.equalsIgnoreCase("current balance"))) {
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
                         viewBal.balance();
                         break;
                     } else {
@@ -68,7 +81,11 @@ public class viewBalance {
                 }
                 scanner.close();
             }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
         } else if (selection.equalsIgnoreCase("credit") || selection.equalsIgnoreCase("credit card")) {
             System.out.println(
                     "Your current balance is: $" + formattedBalance + ". Would you like to do something else?:");
@@ -79,12 +96,19 @@ public class viewBalance {
                     selection = scanner.nextLine();
                     if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")) {
                         withdrawFunc.withdraw();
+<<<<<<< HEAD
                     } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")) {
                         depositFunc.deposit();
                     } else if ((selection.equalsIgnoreCase("view balance")
                             || selection.equalsIgnoreCase("view current balance")
                             || selection.equalsIgnoreCase("balance")
                             || selection.equalsIgnoreCase("current balance"))) {
+=======
+                    } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")){
+                        depositFunc.deposit();
+                    } else if ((selection.equalsIgnoreCase("view balance") || selection.equalsIgnoreCase("view current balance")
+                    || selection.equalsIgnoreCase("balance") || selection.equalsIgnoreCase("current balance"))) {
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
                         viewBal.balance();
                         break;
                     } else {

@@ -5,9 +5,15 @@ import java.util.Scanner;
 import java.util.Random;
 import java.text.NumberFormat;
 
+<<<<<<< HEAD
 //import src.functions.depositFunctions;
 import src.functions.withdrawFunctions;
 //import src.functions.viewBalance;
+=======
+import src.functions.depositFunctions;
+import src.functions.withdrawFunctions;
+import src.functions.viewBalance;
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
 
 public class withdrawFunctions {
     public void withdraw() {
@@ -65,12 +71,19 @@ public class withdrawFunctions {
                     selection = scanner.nextLine();
                     if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")) {
                         withdrawFunc.withdraw();
+<<<<<<< HEAD
                     } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")) {
                         depositFunc.deposit();
                     } else if ((selection.equalsIgnoreCase("view balance")
                             || selection.equalsIgnoreCase("view current balance")
                             || selection.equalsIgnoreCase("balance")
                             || selection.equalsIgnoreCase("current balance"))) {
+=======
+                    } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")){
+                        depositFunc.deposit();
+                    } else if ((selection.equalsIgnoreCase("view balance") || selection.equalsIgnoreCase("view current balance")
+                    || selection.equalsIgnoreCase("balance") || selection.equalsIgnoreCase("current balance"))) {
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
                         viewBal.balance();
                         break;
                     } else {
@@ -101,6 +114,7 @@ public class withdrawFunctions {
             String formattedSum = formatter.format(sum);
             System.out
                     .println("Your current balance is: $" + formattedSum + ". Would you like to do something else?:");
+<<<<<<< HEAD
             while (true) {
                 selection = scanner.nextLine();
                 if (selection.equalsIgnoreCase("yes") || selection.equalsIgnoreCase("y")) {
@@ -124,8 +138,37 @@ public class withdrawFunctions {
                     System.out.println(selection + " is not a valid input");
                 }
                 break;
+=======
+                    while (true) {
+                        selection = scanner.nextLine();
+                        if (selection.equalsIgnoreCase("yes") || selection.equalsIgnoreCase("y")) {
+                            System.out.println("What would you like to do?: ");
+                            selection = scanner.nextLine();
+                            if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")) {
+                                withdrawFunc.withdraw();
+                            } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")){
+                                depositFunc.deposit();
+                            } else if ((selection.equalsIgnoreCase("view balance") || selection.equalsIgnoreCase("view current balance")
+                            || selection.equalsIgnoreCase("balance") || selection.equalsIgnoreCase("current balance"))) {
+                                viewBal.balance();
+                                break;
+                            } else {
+                                System.out.println(selection + " is not a valid input");
+                            }
+                        } else if (selection.equalsIgnoreCase("no") || selection.equalsIgnoreCase("n")) {
+                            break;
+                        } else {
+                            System.out.println(selection + " is not a valid input");
+                        }
+                    }
+                scanner.close();
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
             }
             scanner.close();
         }
+<<<<<<< HEAD
     }
 }
+=======
+    }        
+>>>>>>> 3b511e34be27fe57aa5fd58b1802727082e272ae
