@@ -1,14 +1,23 @@
 package src.functions;
 
+import src.functions.viewBalance;
+
 import java.util.Scanner;
 import java.util.Random;
 import java.text.NumberFormat;
+
+//import src.functions.depositFunctions;
+//import src.functions.withdrawFunctions;
+import src.functions.viewBalance;
 
 public class viewBalance {
     public void balance() {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
         NumberFormat formatter = NumberFormat.getInstance();
+        withdrawFunctions withdrawFunc = new withdrawFunctions();
+        depositFunctions depositFunc = new depositFunctions();
+        viewBalance viewBal = new viewBalance();
 
         int randomBalance = rand.nextInt(1000000000) + 1;
         String formattedBalance = formatter.format(randomBalance);
@@ -32,18 +41,22 @@ public class viewBalance {
                     System.out.println("Invalid pin. Please enter a valid 4-digit pin.");
                 }
             }
-            System.out.println("Your current balance is: $" + formattedBalance);
+            System.out.println(
+                    "Your current balance is: $" + formattedBalance + ". Would you like to do something else?:");
             while (true) {
                 selection = scanner.nextLine();
                 if (selection.equalsIgnoreCase("yes") || selection.equalsIgnoreCase("y")) {
                     System.out.println("What would you like to do?: ");
                     selection = scanner.nextLine();
-                    if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")
-                            || selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")
-                            || selection.equalsIgnoreCase("view balance")
+                    if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")) {
+                        withdrawFunc.withdraw();
+                    } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")) {
+                        depositFunc.deposit();
+                    } else if ((selection.equalsIgnoreCase("view balance")
                             || selection.equalsIgnoreCase("view current balance")
                             || selection.equalsIgnoreCase("balance")
-                            || selection.equalsIgnoreCase("current balance")) {
+                            || selection.equalsIgnoreCase("current balance"))) {
+                        viewBal.balance();
                         break;
                     } else {
                         System.out.println(selection + " is not a valid input");
@@ -53,20 +66,26 @@ public class viewBalance {
                 } else {
                     System.out.println(selection + " is not a valid input");
                 }
+                scanner.close();
             }
+
         } else if (selection.equalsIgnoreCase("credit") || selection.equalsIgnoreCase("credit card")) {
-            System.out.println("Your current balance is: $" + formattedBalance);
+            System.out.println(
+                    "Your current balance is: $" + formattedBalance + ". Would you like to do something else?:");
             while (true) {
                 selection = scanner.nextLine();
                 if (selection.equalsIgnoreCase("yes") || selection.equalsIgnoreCase("y")) {
                     System.out.println("What would you like to do?: ");
                     selection = scanner.nextLine();
-                    if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")
-                            || selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")
-                            || selection.equalsIgnoreCase("view balance")
+                    if (selection.equalsIgnoreCase("withdraw") || selection.equalsIgnoreCase("withdraw money")) {
+                        withdrawFunc.withdraw();
+                    } else if (selection.equalsIgnoreCase("deposit") || selection.equalsIgnoreCase("deposit money")) {
+                        depositFunc.deposit();
+                    } else if ((selection.equalsIgnoreCase("view balance")
                             || selection.equalsIgnoreCase("view current balance")
                             || selection.equalsIgnoreCase("balance")
-                            || selection.equalsIgnoreCase("current balance")) {
+                            || selection.equalsIgnoreCase("current balance"))) {
+                        viewBal.balance();
                         break;
                     } else {
                         System.out.println(selection + " is not a valid input");
@@ -76,6 +95,7 @@ public class viewBalance {
                 } else {
                     System.out.println(selection + " is not a valid input");
                 }
+                scanner.close();
             }
         }
         scanner.close();
