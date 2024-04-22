@@ -1,107 +1,84 @@
-package src.UI;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
-import javax.swing.*;
+public class ATMSimulatorGUI extends Application {
 
-import src.functions.withdrawFunctions;
-import src.functions.depositFunctions;
-import src.functions.viewBalance;
+    private TextArea outputArea;
 
-import java.awt.*;
-import java.awt.event.*;
+    @Override
+    public void start(Stage primaryStage) {
+        // Set up the root pane
+        BorderPane root = new BorderPane();
+        root.setPadding(new Insets(20));
 
-public class ATMSimulatorGUI extends JFrame {
-    private JTextArea outputArea;
+        // Create the output area
+        outputArea = new TextArea();
+        outputArea.setEditable(false);
+        outputArea.setWrapText(true);
+        outputArea.setStyle("-fx-control-inner-background: #2b2b2b; -fx-text-fill: white;");
+        outputArea.setFont(Font.font("Arial", FontWeight.NORMAL, 14));
+        root.setCenter(outputArea);
 
-    public ATMSimulatorGUI() {
-        // Set up the JFrame
-        setTitle("ATM Simulator");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
-        setLocationRelativeTo(null); // Center the window
-        setLayout(new BorderLayout());
-        setResizable(false);
-        getContentPane().setBackground(Color.DARK_GRAY); // Set background color
-
-        // Create the output area (where the text will be displayed)
-        outputArea = new JTextArea(10, 30); // 10 rows, 30 columns
-        outputArea.setEditable(false); // Make the text area read-only
-        outputArea.setLineWrap(true); // Enable text wrapping
-        outputArea.setWrapStyleWord(true); // Wrap at word boundaries
-        outputArea.setForeground(Color.WHITE); // Set text color to white
-        outputArea.setBackground(Color.DARK_GRAY); // Set background color to dark gray
-        outputArea.setFont(new Font("Arial", Font.PLAIN, 14)); // Set font
-        JScrollPane scrollPane = new JScrollPane(outputArea); // Add scrollbars
-
-        // Add the output area to the center of the BorderLayout
-        add(scrollPane, BorderLayout.CENTER);
-
-        // Create a panel for buttons
-        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 10, 10)); // 3 rows, 1 column, with 10 pixels of horizontal
-                                                                       // and vertical spacing
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20)); // Add padding to the panel
-        buttonPanel.setBackground(Color.DARK_GRAY); // Set background color to dark gray
+        // Create the button panel
+        HBox buttonPanel = new HBox(10);
+        buttonPanel.setAlignment(Pos.CENTER);
+        buttonPanel.setPadding(new Insets(10));
+        buttonPanel.setStyle("-fx-background-color: #2b2b2b;");
 
         // Create buttons for actions
-        JButton withdrawButton = new JButton("Withdraw");
-        JButton depositButton = new JButton("Deposit");
-        JButton viewBalanceButton = new JButton("View Balance");
-
-        // Set button colors and font
-        Color buttonColor = new Color(59, 89, 182); // Blue color
-        Color textColor = Color.WHITE; // White color
-        Font buttonFont = new Font("Arial", Font.BOLD, 16); // Bold font
-        withdrawButton.setBackground(buttonColor);
-        withdrawButton.setForeground(textColor);
-        withdrawButton.setFont(buttonFont);
-        depositButton.setBackground(buttonColor);
-        depositButton.setForeground(textColor);
-        depositButton.setFont(buttonFont);
-        viewBalanceButton.setBackground(buttonColor);
-        viewBalanceButton.setForeground(textColor);
-        viewBalanceButton.setFont(buttonFont);
-
-        // Add action listeners to the buttons
-        withdrawButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                outputArea.append("Withdraw selected\n");
-                withdrawFunctions withdrawFunc = new withdrawFunctions();
-                withdrawFunc.withdraw();
-            }
-        });
-                // Call your withdraw function here
-            }
-        });
-
-        depositButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                outputArea.append("Deposit selected\n");
-                
-                // Call your deposit function here
-            }
-        });
-
-        viewBalanceButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                outputArea.append("View balance selected\n");
-                // Call your view balance function here
-            }
-        });
+        Button withdrawButton = createButton("Withdraw");
+        withdrawButton.setOnAction(e -> handleWithdraw());
+        Button depositButton = createButton("Deposit");
+        depositButton.setOnAction(e -> handleDeposit());
+        Button viewBalanceButton = createButton("View Balance");
+        viewBalanceButton.setOnAction(e -> handleViewBalance());
 
         // Add buttons to the button panel
-        buttonPanel.add(withdrawButton);
-        buttonPanel.add(depositButton);
-        buttonPanel.add(viewBalanceButton);
+        buttonPanel.getChildren().addAll(withdrawButton, depositButton, viewBalanceButton);
+        root.setBottom(buttonPanel);
 
-        // Add the button panel to the bottom of the BorderLayout
-        add(buttonPanel, BorderLayout.SOUTH);
+        // Set up the scene and stage
+        Scene scene = new Scene(root, 400, 300);
+        scene.setFill(Color.BLACK);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("ATM Simulator");
+        primaryStage.show();
+    }
+
+    private Button createButton(String text) {
+        Button button = new Button(text);
+        button.setFont(Font.font("Arial", FontWeight.BOLD, 16));
+        button.setTextFill(Color.WHITE);
+        button.setStyle("-fx-background-color: #3b5998; -fx-border-color: #3b5998;");
+        return button;
+    }
+
+    private void handleWithdraw() {
+        outputArea.appendText("Withdraw selected\n");
+        // Call your withdraw function here
+    }
+
+    private void handleDeposit() {
+        outputArea.appendText("Deposit selected\n");
+        // Call your deposit function here
+    }
+
+    private void handleViewBalance() {
+        outputArea.appendText("View balance selected\n");
+        // Call your view balance function here
     }
 
     public static void main(String[] args) {
-        // Create and display the GUI on the Event Dispatch Thread
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new ATMSimulatorGUI().setVisible(true);
-            }
-        });
+        launch(args);
     }
 }
