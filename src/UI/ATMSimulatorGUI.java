@@ -20,7 +20,7 @@ public class ATMSimulatorGUI extends Application {
         // Create button panel
         VBox buttonPanel = new VBox(10);
         buttonPanel.setStyle("-fx-background-color: #303030;");
-        buttonPanel.setPadding(new Insets(20));
+        // buttonPanel.setPadding(new Insets(20));
         Button withdrawButton = new Button("Withdraw");
         Button depositButton = new Button("Deposit");
         Button viewBalanceButton = new Button("View Balance");
