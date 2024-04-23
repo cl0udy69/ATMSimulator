@@ -4,7 +4,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
-public class ATMSimulatorGUI extends Application {
+public class JavaFX extends Application {
     private TextArea outputArea;
 
     @Override
