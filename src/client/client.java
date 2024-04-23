@@ -1,12 +1,10 @@
 package src.client;
-
 import java.util.Scanner;
-
 import src.functions.depositFunctions;
 import src.functions.withdrawFunctions;
 import src.functions.viewBalance;
 
-public class AlternateATMSimulator {
+public class client {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         withdrawFunctions withdrawFunc = new withdrawFunctions();
