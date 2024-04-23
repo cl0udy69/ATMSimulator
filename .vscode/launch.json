@@ -57,7 +57,6 @@
             "request": "launch",
             "mainClass": "src.client.AlternateATMSimulator",
             "projectName": "ATMSimulator_aa49cae9",
-            "vmArgs": "--module-path "C:\Users\Dorian\Desktop\Code\javafx-sdk-22.0.1\lib\" --add-modules javafx.controls,javafx.fxml"
 
         }
     ]
